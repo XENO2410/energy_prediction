@@ -1,0 +1,220 @@
+2024-12-05 22:40:35,777 - INFO - Starting the power consumption prediction pipeline
+2024-12-05 22:40:35,780 - INFO - Created necessary directories
+2024-12-05 22:40:35,781 - INFO - Loading data...
+2024-12-05 22:40:35,784 - ERROR - An error occurred: [Errno 2] No such file or directory: '../data/power_usage_2016_to_2020.csv'
+Traceback (most recent call last):
+  File "D:\Github\energy_prediction\main.py", line 37, in main
+    power_data, weather_data = data_processor.load_data()
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Github\energy_prediction\src\data_processor.py", line 15, in load_data
+    power_data = pd.read_csv('../data/power_usage_2016_to_2020.csv')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../data/power_usage_2016_to_2020.csv'
+2024-12-05 22:41:39,191 - INFO - Starting the power consumption prediction pipeline
+2024-12-05 22:41:39,193 - INFO - Created necessary directories
+2024-12-05 22:41:39,193 - INFO - Loading data...
+2024-12-05 22:41:39,195 - ERROR - An error occurred: [Errno 2] No such file or directory: '../data/power_usage_2016_to_2020.csv'
+Traceback (most recent call last):
+  File "D:\Github\energy_prediction\main.py", line 37, in main
+    power_data, weather_data = data_processor.load_data()
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Github\energy_prediction\src\data_processor.py", line 15, in load_data
+    power_data = pd.read_csv('../data/power_usage_2016_to_2020.csv')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../data/power_usage_2016_to_2020.csv'
+2024-12-05 22:43:08,428 - INFO - Starting the power consumption prediction pipeline
+2024-12-05 22:43:08,429 - INFO - Created necessary directories
+2024-12-05 22:43:08,430 - INFO - Loading data...
+2024-12-05 22:43:08,431 - ERROR - An error occurred: [Errno 2] No such file or directory: '../data/power_usage_2016_to_2020.csv'
+Traceback (most recent call last):
+  File "D:\Github\energy_prediction\main.py", line 37, in main
+    power_data, weather_data = data_processor.load_data()
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Github\energy_prediction\src\data_processor.py", line 15, in load_data
+    power_data = pd.read_csv('../data/power_usage_2016_to_2020.csv')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../data/power_usage_2016_to_2020.csv'
+2024-12-05 22:44:43,931 - INFO - Starting the power consumption prediction pipeline
+2024-12-05 22:44:43,932 - INFO - Created necessary directories
+2024-12-05 22:44:43,933 - INFO - Loading data...
+2024-12-05 22:44:44,010 - ERROR - An error occurred: Passing PeriodDtype data is invalid. Use `data.to_timestamp()` instead
+Traceback (most recent call last):
+  File "D:\Github\energy_prediction\main.py", line 38, in main
+    merged_data = data_processor.merge_data(power_data, weather_data)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Github\energy_prediction\src\data_processor.py", line 33, in merge_data
+    power_data['StartDate'] = pd.to_datetime(power_data['StartDate'])
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\core\tools\datetimes.py", line 1067, in to_datetime
+    values = convert_listlike(arg._values, format)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\core\tools\datetimes.py", line 416, in _convert_listlike_datetimes
+    arg, _ = maybe_convert_dtype(arg, copy=False, tz=libtimezones.maybe_get_tz(tz))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\core\arrays\datetimes.py", line 2466, in maybe_convert_dtype
+    raise TypeError(
+TypeError: Passing PeriodDtype data is invalid. Use `data.to_timestamp()` instead
+2024-12-05 22:50:12,459 - INFO - Starting the power consumption prediction pipeline
+2024-12-05 22:50:12,460 - INFO - Created necessary directories
+2024-12-05 22:50:12,461 - INFO - Loading data...
+2024-12-05 22:50:12,462 - ERROR - An error occurred: [Errno 2] No such file or directory: '../data/power_usage_2016_to_2020.csv'
+Traceback (most recent call last):
+  File "D:\Github\energy_prediction\main.py", line 37, in main
+    power_data, weather_data = data_processor.load_data()
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Github\energy_prediction\src\data_processor.py", line 16, in load_data
+    power_data = pd.read_csv('../data/power_usage_2016_to_2020.csv')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../data/power_usage_2016_to_2020.csv'
+2024-12-05 22:50:34,449 - INFO - Starting the power consumption prediction pipeline
+2024-12-05 22:50:34,449 - INFO - Created necessary directories
+2024-12-05 22:50:34,450 - INFO - Loading data...
+2024-12-05 22:50:34,595 - INFO - Loaded data with shape: (35952, 23)
+2024-12-05 22:50:34,596 - INFO - Engineering features...
+2024-12-05 22:50:34,617 - ERROR - An error occurred: 'Watts'
+Traceback (most recent call last):
+  File "D:\spark\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Watts'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Github\energy_prediction\main.py", line 43, in main
+    processed_data = feature_engineer.create_features(merged_data)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Github\energy_prediction\src\feature_engineer.py", line 23, in create_features
+    df['rolling_mean_24h'] = df['Watts'].rolling(window=24).mean()
+                             ~~^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\core\frame.py", line 4102, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Watts'
+2024-12-05 22:59:53,379 - INFO - Starting the power consumption prediction pipeline
+2024-12-05 22:59:53,380 - INFO - Created necessary directories
+2024-12-05 22:59:53,381 - INFO - Loading data...
+2024-12-05 22:59:53,383 - ERROR - An error occurred: [Errno 2] No such file or directory: '../data/power_usage_2016_to_2020.csv'
+Traceback (most recent call last):
+  File "D:\Github\energy_prediction\main.py", line 37, in main
+    power_data, weather_data = data_processor.load_data()
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Github\energy_prediction\src\data_processor.py", line 16, in load_data
+    power_data = pd.read_csv('../data/power_usage_2016_to_2020.csv')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../data/power_usage_2016_to_2020.csv'
+2024-12-05 23:00:11,915 - INFO - Starting the power consumption prediction pipeline
+2024-12-05 23:00:11,916 - INFO - Created necessary directories
+2024-12-05 23:00:11,917 - INFO - Loading data...
+2024-12-05 23:00:12,087 - INFO - Loaded data with shape: (0, 23)
+2024-12-05 23:00:12,088 - INFO - Engineering features...
+2024-12-05 23:00:12,099 - ERROR - An error occurred: Found array with 0 sample(s) (shape=(0, 1)) while a minimum of 1 is required by MinMaxScaler.
+Traceback (most recent call last):
+  File "D:\Github\energy_prediction\main.py", line 44, in main
+    scaled_data = feature_engineer.scale_features(processed_data)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Github\energy_prediction\src\feature_engineer.py", line 63, in scale_features
+    df[feature] = self.scalers[feature].fit_transform(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\sklearn\utils\_set_output.py", line 313, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\sklearn\base.py", line 1098, in fit_transform
+    return self.fit(X, **fit_params).transform(X)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\sklearn\preprocessing\_data.py", line 450, in fit
+    return self.partial_fit(X, y)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\sklearn\base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\sklearn\preprocessing\_data.py", line 490, in partial_fit
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\sklearn\base.py", line 633, in _validate_data
+    out = check_array(X, input_name="X", **check_params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\sklearn\utils\validation.py", line 1087, in check_array
+    raise ValueError(
+ValueError: Found array with 0 sample(s) (shape=(0, 1)) while a minimum of 1 is required by MinMaxScaler.
