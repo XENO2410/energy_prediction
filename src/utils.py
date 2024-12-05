@@ -71,3 +71,17 @@ def calculate_metrics(y_true, y_pred):
         'rmse': rmse,
         'mae': mae
     }
+
+def plot_power_consumption(data, title="Power Consumption Over Time", save_path=None):
+    """Plot power consumption time series"""
+    plt.figure(figsize=(12, 6))
+    plt.plot(data['StartDate'], data['Value (kWh)'])
+    plt.title(title)
+    plt.xlabel('Time')
+    plt.ylabel('Power Consumption (kWh)')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    
+    if save_path:
+        plt.savefig(save_path)
+    plt.close()

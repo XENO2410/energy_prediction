@@ -1,7 +1,7 @@
 #src/feature_engineer.py
 import pandas as pd
 import numpy as np
-from typing import Dict
+from typing import Dict, Tuple
 import logging
 
 class FeatureEngineer:
@@ -54,7 +54,7 @@ class FeatureEngineer:
             
         return np.array(X), np.array(y)
 
-    def process_features(self, df: pd.DataFrame) -> pd.DataFrame:
+    def process_features(self, df: pd.DataFrame) -> pd.DataFrame:  # This was missing
         """Apply all feature engineering steps"""
         try:
             # Create all features
