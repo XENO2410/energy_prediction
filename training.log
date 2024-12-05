@@ -404,3 +404,109 @@ KeyError: 'Watts'
 2024-12-06 00:15:01,149 - INFO - R² Score: 0.2574
 2024-12-06 00:15:01,150 - INFO - Plotting results...
 2024-12-06 00:15:01,738 - INFO - Process completed successfully!
+2024-12-06 00:21:30,648 - INFO - Loading data...
+2024-12-06 00:21:30,723 - INFO - Power data shape: (35952, 4)
+2024-12-06 00:21:30,724 - INFO - Weather data shape: (1552, 19)
+2024-12-06 00:21:30,724 - INFO - Merging data...
+2024-12-06 00:21:30,750 - INFO - Merged data shape: (35952, 24)
+2024-12-06 00:21:30,750 - INFO - Engineering features...
+2024-12-06 00:21:30,799 - ERROR - Error in feature engineering: 'Power'
+2024-12-06 00:21:30,800 - ERROR - An error occurred: 'Power'
+2024-12-06 00:24:37,208 - INFO - Loading data...
+2024-12-06 00:24:37,326 - INFO - Power data shape: (35952, 4)
+2024-12-06 00:24:37,327 - INFO - Weather data shape: (1552, 19)
+2024-12-06 00:24:37,327 - INFO - Merging data...
+2024-12-06 00:24:37,370 - INFO - Merged data shape: (35952, 24)
+2024-12-06 00:24:37,371 - INFO - Data columns available:
+2024-12-06 00:24:37,372 - INFO - ['key_0', 'StartDate', 'Value (kWh)', 'day_of_week_x', 'notes', 'Date', 'Day', 'Temp_max', 'Temp_avg', 'Temp_min', 'Dew_max', 'Dew_avg', 'Dew_min', 'Hum_max', 'Hum_avg', 'Hum_min', 'Wind_max', 'Wind_avg', 'Wind_min', 'Press_max', 'Press_avg', 'Press_min', 'Precipit', 'day_of_week_y']
+2024-12-06 00:24:37,374 - INFO - Engineering features...
+2024-12-06 00:24:37,375 - INFO - Initial DataFrame shape: (35952, 24)
+2024-12-06 00:24:37,375 - INFO - Initial columns: ['key_0', 'StartDate', 'Value (kWh)', 'day_of_week_x', 'notes', 'Date', 'Day', 'Temp_max', 'Temp_avg', 'Temp_min', 'Dew_max', 'Dew_avg', 'Dew_min', 'Hum_max', 'Hum_avg', 'Hum_min', 'Wind_max', 'Wind_avg', 'Wind_min', 'Press_max', 'Press_avg', 'Press_min', 'Precipit', 'day_of_week_y']
+2024-12-06 00:24:37,377 - INFO - Available columns: ['key_0', 'StartDate', 'Value (kWh)', 'day_of_week_x', 'notes', 'Date', 'Day', 'Temp_max', 'Temp_avg', 'Temp_min', 'Dew_max', 'Dew_avg', 'Dew_min', 'Hum_max', 'Hum_avg', 'Hum_min', 'Wind_max', 'Wind_avg', 'Wind_min', 'Press_max', 'Press_avg', 'Press_min', 'Precipit', 'day_of_week_y']
+2024-12-06 00:24:37,379 - ERROR - Error in creating lag features: "Target column 'power_consumption' not found in DataFrame"
+2024-12-06 00:24:37,380 - ERROR - Error in feature engineering: "Target column 'power_consumption' not found in DataFrame"
+2024-12-06 00:24:37,382 - ERROR - An error occurred: "Target column 'power_consumption' not found in DataFrame"
+2024-12-06 00:26:10,563 - INFO - Loading data...
+2024-12-06 00:26:10,645 - INFO - Power data shape: (35952, 4)
+2024-12-06 00:26:10,646 - INFO - Weather data shape: (1552, 19)
+2024-12-06 00:26:10,646 - INFO - Merging data...
+2024-12-06 00:26:10,688 - INFO - Merged data shape: (35952, 24)
+2024-12-06 00:26:10,689 - INFO - Data columns available:
+2024-12-06 00:26:10,690 - INFO - ['key_0', 'StartDate', 'Value (kWh)', 'day_of_week_x', 'notes', 'Date', 'Day', 'Temp_max', 'Temp_avg', 'Temp_min', 'Dew_max', 'Dew_avg', 'Dew_min', 'Hum_max', 'Hum_avg', 'Hum_min', 'Wind_max', 'Wind_avg', 'Wind_min', 'Press_max', 'Press_avg', 'Press_min', 'Precipit', 'day_of_week_y']
+2024-12-06 00:26:10,691 - INFO - Engineering features...
+2024-12-06 00:26:10,691 - INFO - Initial DataFrame shape: (35952, 24)
+2024-12-06 00:26:10,778 - INFO - Final columns: ['StartDate', 'Value (kWh)', 'Date', 'Day', 'Temp_max', 'Temp_avg', 'Temp_min', 'Dew_max', 'Dew_avg', 'Dew_min', 'Hum_max', 'Hum_avg', 'Hum_min', 'Wind_max', 'Wind_avg', 'Wind_min', 'Press_max', 'Press_avg', 'Press_min', 'Precipit', 'hour', 'day', 'month', 'year', 'day_of_week', 'is_weekend', 'lag_1', 'lag_2', 'lag_3', 'lag_24', 'rolling_mean_6', 'rolling_std_6', 'rolling_mean_12', 'rolling_std_12', 'rolling_mean_24', 'rolling_std_24']
+2024-12-06 00:26:10,779 - INFO - Feature engineering completed. Shape: (35928, 36)
+2024-12-06 00:26:10,780 - ERROR - Error preparing data: 'weather_features'
+2024-12-06 00:26:10,781 - ERROR - An error occurred: 'weather_features'
+2024-12-06 00:29:43,622 - INFO - Loading data...
+2024-12-06 00:29:43,664 - INFO - Power data shape: (35952, 4)
+2024-12-06 00:29:43,664 - INFO - Weather data shape: (1552, 19)
+2024-12-06 00:29:43,665 - INFO - Merging data...
+2024-12-06 00:29:43,665 - ERROR - Error merging data: 'Date'
+2024-12-06 00:29:43,666 - ERROR - An error occurred: 'Date'
+2024-12-06 01:23:35,792 - INFO - Loading data...
+2024-12-06 01:23:35,884 - INFO - Power data shape: (35952, 4)
+2024-12-06 01:23:35,884 - INFO - Weather data shape: (1552, 19)
+2024-12-06 01:23:35,884 - INFO - Merging data...
+2024-12-06 01:23:35,920 - INFO - Merged data shape: (35952, 24)
+2024-12-06 01:23:35,921 - INFO - Engineering features...
+2024-12-06 01:23:35,984 - INFO - Feature engineering completed. Shape: (35922, 39)
+2024-12-06 01:23:36,100 - INFO - Training model...
+2024-12-06 01:24:01,698 - INFO - Epoch 1/50 - Train Loss: 0.8318 - Val Loss: 1.1752
+2024-12-06 01:24:27,728 - INFO - Epoch 2/50 - Train Loss: 0.8212 - Val Loss: 1.1815
+2024-12-06 01:24:45,335 - INFO - Epoch 3/50 - Train Loss: 0.8163 - Val Loss: 1.1656
+2024-12-06 01:25:02,870 - INFO - Epoch 4/50 - Train Loss: 0.8024 - Val Loss: 1.1468
+2024-12-06 01:25:25,397 - INFO - Epoch 5/50 - Train Loss: 0.7705 - Val Loss: 1.0928
+2024-12-06 01:25:44,901 - INFO - Epoch 6/50 - Train Loss: 0.7245 - Val Loss: 1.1362
+2024-12-06 01:26:09,799 - INFO - Epoch 7/50 - Train Loss: 0.6734 - Val Loss: 1.0010
+2024-12-06 01:26:34,111 - INFO - Epoch 8/50 - Train Loss: 0.6256 - Val Loss: 0.9743
+2024-12-06 01:26:55,992 - INFO - Epoch 9/50 - Train Loss: 0.5789 - Val Loss: 1.1295
+2024-12-06 01:27:17,435 - INFO - Epoch 10/50 - Train Loss: 0.5616 - Val Loss: 1.0381
+2024-12-06 01:27:38,299 - INFO - Epoch 11/50 - Train Loss: 0.5464 - Val Loss: 0.9705
+2024-12-06 01:28:00,887 - INFO - Epoch 12/50 - Train Loss: 0.5303 - Val Loss: 1.0113
+2024-12-06 01:28:22,797 - INFO - Epoch 13/50 - Train Loss: 0.5190 - Val Loss: 1.0111
+2024-12-06 01:28:41,394 - INFO - Epoch 14/50 - Train Loss: 0.5079 - Val Loss: 1.0599
+2024-12-06 01:29:00,657 - INFO - Epoch 15/50 - Train Loss: 0.4986 - Val Loss: 1.1201
+2024-12-06 01:29:17,672 - INFO - Epoch 16/50 - Train Loss: 0.4881 - Val Loss: 1.1015
+2024-12-06 01:29:34,706 - INFO - Epoch 17/50 - Train Loss: 0.4769 - Val Loss: 1.0034
+2024-12-06 01:29:56,403 - INFO - Epoch 18/50 - Train Loss: 0.4668 - Val Loss: 1.1463
+2024-12-06 01:30:15,716 - INFO - Epoch 19/50 - Train Loss: 0.4565 - Val Loss: 1.0415
+2024-12-06 01:30:33,693 - INFO - Epoch 20/50 - Train Loss: 0.4555 - Val Loss: 1.0966
+2024-12-06 01:30:50,695 - INFO - Epoch 21/50 - Train Loss: 0.4382 - Val Loss: 1.0882
+2024-12-06 01:31:07,811 - INFO - Epoch 22/50 - Train Loss: 0.4310 - Val Loss: 1.1237
+2024-12-06 01:31:24,978 - INFO - Epoch 23/50 - Train Loss: 0.4262 - Val Loss: 1.1920
+2024-12-06 01:31:46,637 - INFO - Epoch 24/50 - Train Loss: 0.4275 - Val Loss: 1.1139
+2024-12-06 01:32:04,132 - INFO - Epoch 25/50 - Train Loss: 0.4120 - Val Loss: 1.2913
+2024-12-06 01:32:22,882 - INFO - Epoch 26/50 - Train Loss: 0.4039 - Val Loss: 1.2098
+2024-12-06 01:32:39,182 - INFO - Epoch 27/50 - Train Loss: 0.4013 - Val Loss: 1.1064
+2024-12-06 01:32:57,212 - INFO - Epoch 28/50 - Train Loss: 0.3904 - Val Loss: 1.1170
+2024-12-06 01:33:14,530 - INFO - Epoch 29/50 - Train Loss: 0.3845 - Val Loss: 1.1221
+2024-12-06 01:33:32,292 - INFO - Epoch 30/50 - Train Loss: 0.3768 - Val Loss: 1.0791
+2024-12-06 01:33:49,826 - INFO - Epoch 31/50 - Train Loss: 0.3738 - Val Loss: 1.2122
+2024-12-06 01:34:05,865 - INFO - Epoch 32/50 - Train Loss: 0.3609 - Val Loss: 1.1929
+2024-12-06 01:34:23,409 - INFO - Epoch 33/50 - Train Loss: 0.3621 - Val Loss: 1.2466
+2024-12-06 01:34:40,734 - INFO - Epoch 34/50 - Train Loss: 0.3600 - Val Loss: 1.2282
+2024-12-06 01:34:59,953 - INFO - Epoch 35/50 - Train Loss: 0.3642 - Val Loss: 1.2171
+2024-12-06 01:35:15,443 - INFO - Epoch 36/50 - Train Loss: 0.3476 - Val Loss: 1.2075
+2024-12-06 01:35:30,851 - INFO - Epoch 37/50 - Train Loss: 0.3380 - Val Loss: 1.4181
+2024-12-06 01:35:49,222 - INFO - Epoch 38/50 - Train Loss: 0.3396 - Val Loss: 1.1515
+2024-12-06 01:36:08,133 - INFO - Epoch 39/50 - Train Loss: 0.3325 - Val Loss: 1.3101
+2024-12-06 01:36:29,416 - INFO - Epoch 40/50 - Train Loss: 0.3292 - Val Loss: 1.1604
+2024-12-06 01:36:50,218 - INFO - Epoch 41/50 - Train Loss: 0.3330 - Val Loss: 1.1444
+2024-12-06 01:37:08,386 - INFO - Epoch 42/50 - Train Loss: 0.3183 - Val Loss: 1.1897
+2024-12-06 01:37:25,778 - INFO - Epoch 43/50 - Train Loss: 0.3193 - Val Loss: 1.3144
+2024-12-06 01:37:41,909 - INFO - Epoch 44/50 - Train Loss: 0.3104 - Val Loss: 1.2595
+2024-12-06 01:38:00,221 - INFO - Epoch 45/50 - Train Loss: 0.2947 - Val Loss: 1.3790
+2024-12-06 01:38:19,434 - INFO - Epoch 46/50 - Train Loss: 0.3111 - Val Loss: 1.1606
+2024-12-06 01:38:36,989 - INFO - Epoch 47/50 - Train Loss: 0.3001 - Val Loss: 1.1114
+2024-12-06 01:38:56,576 - INFO - Epoch 48/50 - Train Loss: 0.2968 - Val Loss: 1.2302
+2024-12-06 01:39:13,606 - INFO - Epoch 49/50 - Train Loss: 0.2943 - Val Loss: 1.2236
+2024-12-06 01:39:31,114 - INFO - Epoch 50/50 - Train Loss: 0.2884 - Val Loss: 1.2692
+2024-12-06 01:39:31,640 - INFO - Evaluating model...
+2024-12-06 01:39:32,762 - INFO - Test Results:
+2024-12-06 01:39:32,763 - INFO - RMSE: 0.62
+2024-12-06 01:39:32,764 - INFO - MAE: 0.37
+2024-12-06 01:39:32,765 - INFO - R² Score: 0.2122
+2024-12-06 01:39:32,766 - INFO - Plotting results...
+2024-12-06 01:39:33,540 - INFO - Process completed successfully!
