@@ -218,3 +218,58 @@ Traceback (most recent call last):
   File "D:\spark\venv\Lib\site-packages\sklearn\utils\validation.py", line 1087, in check_array
     raise ValueError(
 ValueError: Found array with 0 sample(s) (shape=(0, 1)) while a minimum of 1 is required by MinMaxScaler.
+2024-12-05 23:07:07,627 - INFO - Starting the power consumption prediction pipeline
+2024-12-05 23:07:07,628 - INFO - Current working directory: D:\Github\energy_prediction
+2024-12-05 23:07:07,628 - INFO - Files in data directory: ['power_usage_2016_to_2020.csv', 'weather_2016_2020_daily.csv']
+2024-12-05 23:07:07,630 - INFO - Created necessary directories
+2024-12-05 23:07:07,631 - INFO - Loading data...
+2024-12-05 23:07:07,969 - ERROR - Value error: Power data is empty or None
+Traceback (most recent call last):
+  File "D:\Github\energy_prediction\main.py", line 54, in main
+    validate_data(power_data, "Power data")
+  File "D:\Github\energy_prediction\main.py", line 28, in validate_data
+    raise ValueError(f"{name} is empty or None")
+ValueError: Power data is empty or None
+2024-12-05 23:08:29,553 - INFO - Starting the power consumption prediction pipeline
+2024-12-05 23:08:29,554 - INFO - Current working directory: D:\Github\energy_prediction
+2024-12-05 23:08:29,554 - INFO - Files in data directory: ['power_usage_2016_to_2020.csv', 'weather_2016_2020_daily.csv']
+2024-12-05 23:08:29,555 - INFO - Created necessary directories
+2024-12-05 23:08:29,555 - INFO - Loading data...
+2024-12-05 23:08:34,196 - INFO - Power data shape: (35952, 4)
+2024-12-05 23:08:34,196 - INFO - Power data columns: ['StartDate', 'Value (kWh)', 'day_of_week', 'notes']
+2024-12-05 23:08:34,197 - INFO - Weather data shape: (1552, 19)
+2024-12-05 23:08:34,197 - INFO - Weather data columns: ['Date', 'Day', 'Temp_max', 'Temp_avg', 'Temp_min', 'Dew_max', 'Dew_avg', 'Dew_min', 'Hum_max', 'Hum_avg', 'Hum_min', 'Wind_max', 'Wind_avg', 'Wind_min', 'Press_max', 'Press_avg', 'Press_min', 'Precipit', 'day_of_week']
+2024-12-05 23:08:34,274 - INFO - Merged data shape: (35952, 23)
+2024-12-05 23:08:34,275 - INFO - Engineering features...
+2024-12-05 23:08:34,323 - INFO - Processed data shape before scaling: (35928, 35)
+2024-12-05 23:08:34,328 - INFO - Processed data shape after scaling: (35928, 35)
+2024-12-05 23:08:34,328 - INFO - Preparing sequences...
+2024-12-05 23:08:34,330 - ERROR - An unexpected error occurred: 'Watts'
+Traceback (most recent call last):
+  File "D:\spark\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\\_libs\\hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Watts'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Github\energy_prediction\main.py", line 80, in main
+    X, y = feature_engineer.prepare_sequences(scaled_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Github\energy_prediction\src\feature_engineer.py", line 84, in prepare_sequences
+    target = df.iloc[i + sequence_length]['Watts']
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\core\series.py", line 1121, in __getitem__
+    return self._get_value(key)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\core\series.py", line 1237, in _get_value
+    loc = self.index.get_loc(label)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\spark\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Watts'

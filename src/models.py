@@ -1,35 +1,33 @@
 #src/models.py
 import torch
 import torch.nn as nn
+from typing import Dict
 
-class LSTMPredictor(nn.Module):
-    def __init__(self, input_dim, hidden_dim, num_layers, output_dim, dropout=0.2):
-        super(LSTMPredictor, self).__init__()
-        
-        self.hidden_dim = hidden_dim
-        self.num_layers = num_layers
+class LSTMModel(nn.Module):
+    def __init__(self, config: Dict):
+        super(LSTMModel, self).__init__()
+        self.input_dim = len(config['weather_features'])
+        self.hidden_dim = config['hidden_dim']
+        self.num_layers = config['num_layers']
+        self.dropout = config['dropout']
         
         self.lstm = nn.LSTM(
-            input_dim,
-            hidden_dim,
-            num_layers,
-            batch_first=True,
-            dropout=dropout
+            input_size=self.input_dim,
+            hidden_size=self.hidden_dim,
+            num_layers=self.num_layers,
+            dropout=self.dropout,
+            batch_first=True
         )
         
-        self.fc = nn.Sequential(
-            nn.Linear(hidden_dim, hidden_dim // 2),
-            nn.ReLU(),
-            nn.Dropout(dropout),
-            nn.Linear(hidden_dim // 2, output_dim)
-        )
+        self.fc = nn.Linear(self.hidden_dim, 1)
         
     def forward(self, x):
+        # LSTM forward pass
         lstm_out, _ = self.lstm(x)
         
-        # Use only the last time step's output
-        last_time_step = lstm_out[:, -1, :]
+        # Use only the last output
+        last_output = lstm_out[:, -1, :]
         
-        # Predict the next value
-        out = self.fc(last_time_step)
+        # Predict
+        out = self.fc(last_output)
         return out

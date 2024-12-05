@@ -1,88 +1,73 @@
 #src/feature_engineer.py
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import MinMaxScaler
+from typing import Dict
+import logging
 
 class FeatureEngineer:
-    def __init__(self, config):
+    def __init__(self, config: Dict):
         self.config = config
-        self.scalers = {}
-        # Update column names to match your dataset
-        self.power_column = 'Value (kWh)'
-        self.temp_column = 'Temp_avg'
-        self.humidity_column = 'Hum_avg'
-        self.wind_column = 'Wind_avg'
-        
-    def create_features(self, df):
-        """Create time-based features and engineer additional features"""
+        self.logger = logging.getLogger(__name__)
+
+    def create_time_features(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Create time-based features"""
         df = df.copy()
         
-        # Time-based features
+        # Extract time components
         df['hour'] = df['StartDate'].dt.hour
         df['day'] = df['StartDate'].dt.day
         df['month'] = df['StartDate'].dt.month
-        
-        # Use existing day_of_week column or create if needed
-        if 'day_of_week' not in df.columns:
-            df['day_of_week'] = df['StartDate'].dt.dayofweek
-            
+        df['day_of_week'] = df['StartDate'].dt.dayofweek
         df['is_weekend'] = df['day_of_week'].isin([5, 6]).astype(int)
         
-        # Calculate rolling statistics for power consumption
-        df['rolling_mean_24h'] = df[self.power_column].rolling(window=24).mean()
-        df['rolling_std_24h'] = df[self.power_column].rolling(window=24).std()
-        
-        # Create lag features
-        for i in [1, 2, 3, 24]:  # 1, 2, 3 hours and 1 day lag
-            df[f'lag_{i}h'] = df[self.power_column].shift(i)
-        
-        # Add weather-based features
-        df['temp_humidity_interaction'] = df[self.temp_column] * df[self.humidity_column]
-        
-        # Drop rows with NaN values created by rolling and lag features
-        df = df.dropna()
-        
         return df
-    
-    def scale_features(self, df, is_training=True):
-        """Scale numerical features"""
-        features_to_scale = [
-            self.power_column,
-            self.temp_column,
-            self.humidity_column,
-            self.wind_column,
-            'rolling_mean_24h',
-            'rolling_std_24h',
-            'temp_humidity_interaction'
-        ]
+
+    def create_lag_features(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Create lag features"""
+        df = df.copy()
         
-        if is_training:
-            for feature in features_to_scale:
-                if feature in df.columns:
-                    self.scalers[feature] = MinMaxScaler()
-                    df[feature] = self.scalers[feature].fit_transform(
-                        df[feature].values.reshape(-1, 1)
-                    )
-        else:
-            for feature in features_to_scale:
-                if feature in df.columns and feature in self.scalers:
-                    df[feature] = self.scalers[feature].transform(
-                        df[feature].values.reshape(-1, 1)
-                    )
-        
-        return df
-    
-    def prepare_sequences(self, df):
-        """Prepare sequences for time series prediction"""
-        sequence_length = self.config['sequence_length']
-        
-        sequences = []
-        targets = []
-        
-        for i in range(len(df) - sequence_length):
-            sequence = df.iloc[i:(i + sequence_length)]
-            target = df.iloc[i + sequence_length]['Watts']
-            sequences.append(sequence)
-            targets.append(target)
+        for lag in self.config['lag_features']:
+            df[f'lag_{lag}'] = df[self.config['target']].shift(lag)
             
-        return np.array(sequences), np.array(targets)
+        return df
+
+    def create_rolling_features(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Create rolling window features"""
+        df = df.copy()
+        
+        for window in self.config['rolling_windows']:
+            df[f'rolling_mean_{window}h'] = df[self.config['target']].rolling(
+                window=window).mean()
+            df[f'rolling_std_{window}h'] = df[self.config['target']].rolling(
+                window=window).std()
+            
+        return df
+
+    def create_sequences(self, features: np.ndarray, target: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
+        """Create sequences for LSTM"""
+        X, y = [], []
+        seq_length = self.config['sequence_length']
+        
+        for i in range(len(features) - seq_length):
+            X.append(features[i:(i + seq_length)])
+            y.append(target[i + seq_length])
+            
+        return np.array(X), np.array(y)
+
+    def process_features(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Apply all feature engineering steps"""
+        try:
+            # Create all features
+            df = self.create_time_features(df)
+            df = self.create_lag_features(df)
+            df = self.create_rolling_features(df)
+            
+            # Handle missing values
+            df = df.dropna()
+            
+            self.logger.info(f"Feature engineering completed. Shape: {df.shape}")
+            return df
+            
+        except Exception as e:
+            self.logger.error(f"Error in feature engineering: {str(e)}")
+            raise
